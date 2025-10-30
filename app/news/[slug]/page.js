@@ -3,9 +3,13 @@ import { DUMMY_NEWS } from "@/data/dummy-news"
 export default function NewsDetailPage({ params }) {
   const newsItem = DUMMY_NEWS.find(news => news.slug === params.slug)
   return (
-    <div>
-      <h1>{newsItem.title}</h1>
+    <article className="news-article">
+      <header>
+        <img src={`/images/news/${newsItem.image}`} alt={newsItem.title} />
+        <h1>{newsItem.title}</h1>
+        <time dateTime={newsItem.date}>{newsItem.date}</time>
+      </header>
       <p>{newsItem.content}</p>
-    </div>
+    </article>
   )
 }
